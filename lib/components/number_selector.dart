@@ -4,10 +4,12 @@ import 'package:imc_calculadora/core/text_styles.dart';
 
 class NumberSelector extends StatefulWidget {
   final String title;
+  final int value;
   final Function() onIncrement;
+  final Function() onDecrement;
 
   //Se recibimos arguments lo ponemos despues del padre para que guarde su valor
-  const NumberSelector({super.key, required this.title, required this.onIncrement});
+  const NumberSelector({super.key, required this.title,required this.value, required this.onIncrement, required this.onDecrement});
 
   @override
   State<NumberSelector> createState() => _NumberSelectorState();
@@ -28,17 +30,20 @@ class _NumberSelectorState extends State<NumberSelector> {
             //Con la clase widget. podemos llamar a los atributos de la clase
             Text(widget.title, style: TextStyles.bodyText,
             ),
-            Text("10",style: TextStyles.numberText,),
+            Text(widget.value.toString(),style: TextStyles.numberText,),
             Row(
               //Para usar el mainaxis, entonces debemos hacer que cada contenedor ocupe todo el espcio puede ser con expanded
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 //shape: Recibe un tipo de borde para los botones
                 FloatingActionButton(
+                  //Cada bton o los floating tiene un herotag que identifica a las pantallas
+                  heroTag: null,
                   onPressed: () {
                     //Por lo general el setstate se pónecuando se interactua con un boton
                     widget.onIncrement();
                   },
+                  //Hace que el boton se de forma circular
                   shape: CircleBorder(),
                   backgroundColor: AppColors.primary,
                   child: Icon(Icons.add, color: Colors.white),
@@ -46,7 +51,10 @@ class _NumberSelectorState extends State<NumberSelector> {
                 //Importante sized box es como un widget vacio
                 SizedBox(width: 16),
                 FloatingActionButton(
-                  onPressed: () {},
+                  heroTag: null,
+                  onPressed: () {
+                    widget.onDecrement();
+                  },
                   shape: CircleBorder(),
                   backgroundColor: AppColors.primary,
                   child: Icon(Icons.remove, color: Colors.white),

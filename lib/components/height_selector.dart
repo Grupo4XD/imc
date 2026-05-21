@@ -3,7 +3,11 @@ import 'package:imc_calculadora/core/app_colors.dart';
 import 'package:imc_calculadora/core/text_styles.dart';
 
 class HeightSelector extends StatefulWidget {
-  const HeightSelector({super.key});
+  final double selectedHeight;
+  //Definimos funciones si un widget devuelve un valor y queremos llamar al padre
+  final Function(double) onHeightChange;
+  
+  const HeightSelector({super.key,required this.selectedHeight,required this.onHeightChange});
 
   @override
   State<HeightSelector> createState() => _HeightSelectorState();
@@ -11,7 +15,6 @@ class HeightSelector extends StatefulWidget {
 
 class _HeightSelectorState extends State<HeightSelector> {
 
-  double height = 170;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -29,21 +32,19 @@ class _HeightSelectorState extends State<HeightSelector> {
                 padding: const EdgeInsets.only(top:8),
                 child: Text("ALTURA",style: TextStyles.bodyText),
               ),
-              Text("${height.toStringAsFixed(0)} cm",style: TextStyle(
+              Text("${widget.selectedHeight.toStringAsFixed(0)} cm",style: TextStyle(
                 color: Colors.white,
                 fontSize: 40,
                 fontWeight: FontWeight.bold,
               ),),
               //Slider es una barra de estado, onchanged su value es el valor que devuelve la funcion
-              Slider(value: height, onChanged: (medicion){
-                setState(() {
-                   height = medicion;
-                });
+              Slider(value: widget.selectedHeight, onChanged: (medicion){
+                widget.onHeightChange(medicion);
                //Cantidad minima y maxima y las divisones son el rango entre el minimoy maximo para que vaya de uno en uno
                //El activeColor es para la barra
                //Label se ve cuando movemos la barra
               },min: 150,max: 220,divisions: 70,
-              label: "${height.toStringAsFixed(0)}",
+              label: "${widget.selectedHeight.toStringAsFixed(0)}",
               activeColor: AppColors.accent,)
             ],
           ),

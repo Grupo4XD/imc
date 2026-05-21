@@ -27,7 +27,7 @@ class _GenderSelectorState extends State<GenderSelector> {
               });
             },
             child: Padding(
-              padding: const EdgeInsets.only(left: 16,bottom:16,top: 16, right: 8),
+              padding: const EdgeInsets.only(left: 26,bottom:16,top: 16, right: 10),
               child: Container(
                 decoration: BoxDecoration(
                   color: selectedGender == "Masculino" ?
@@ -40,7 +40,7 @@ class _GenderSelectorState extends State<GenderSelector> {
                   padding: const EdgeInsets.all(12),
                   child: Column(
                     children: [
-                      Image.asset("assets/imagenes/male.png", height: 100),
+                      Image.asset("assets/imagenes/male.png", height: 80),
                       SizedBox(height: 8,),
                       Text(
                         "Masculino".toUpperCase(),
@@ -62,7 +62,7 @@ class _GenderSelectorState extends State<GenderSelector> {
               });
             },
             child: Padding(
-              padding: const EdgeInsets.only(top: 16,bottom: 16,right: 16,left: 8),
+              padding: const EdgeInsets.only(top: 16,bottom: 16,right: 26,left: 10),
               child: Container(
                 decoration: BoxDecoration(
                   color: selectedGender =="Femenino" ?
@@ -77,7 +77,7 @@ class _GenderSelectorState extends State<GenderSelector> {
                       padding: const EdgeInsets.all(12),
                       child: Column(
                         children: [
-                          Image.asset("assets/imagenes/female.png", height: 100),
+                          Image.asset("assets/imagenes/female.png", height: 80),
                           SizedBox(height: 8,),
                           Text(
                             "Femenino".toUpperCase(),
