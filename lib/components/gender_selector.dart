@@ -17,53 +17,79 @@ class _GenderSelectorState extends State<GenderSelector> {
     return Row(
       children: [
         //Hombre
-        Container(
-          decoration: BoxDecoration(
-            color: selectedGender =="Masculino" ?
-            AppColors.backgroundComponentSelected:
-            AppColors.backgroundComponent
-            ,
-            borderRadius: BorderRadius.circular(15)
-          ),
-          child: Padding(
-            padding: const EdgeInsets.all(12),
-            child: Column(
-              children: [
-                Image.asset("assets/imagenes/male.png", height: 100),
-                SizedBox(height: 8,),
-                Text(
-                  "Masculino".toUpperCase(),
-                  style: TextStyles.bodyText,
+        Expanded(
+          //El widget sera clicleable con este metodo 
+          child: GestureDetector(
+            onTap: (){
+              setState(() {
+                //Este metodod siempre se llama siempre que modifiquemos el UI, y siempre se pone para hacer algun cambie en un stateful
+                selectedGender = "Masculino";
+              });
+            },
+            child: Padding(
+              padding: const EdgeInsets.only(left: 16,bottom:16,top: 16, right: 8),
+              child: Container(
+                decoration: BoxDecoration(
+                  color: selectedGender == "Masculino" ?
+                  AppColors.backgroundComponentSelected:
+                  AppColors.backgroundComponent
+                  ,
+                  borderRadius: BorderRadius.circular(15)
                 ),
-              ],
+                child: Padding(
+                  padding: const EdgeInsets.all(12),
+                  child: Column(
+                    children: [
+                      Image.asset("assets/imagenes/male.png", height: 100),
+                      SizedBox(height: 8,),
+                      Text(
+                        "Masculino".toUpperCase(),
+                        style: TextStyles.bodyText,
+                      ),
+                    ],
+                  ),
+                ),
+              ),
             ),
           ),
         ),
         //Mujer
-        Container(
-          decoration: BoxDecoration(
-            color: selectedGender =="Femenino" ?
-            AppColors.backgroundComponentSelected:
-            AppColors.backgroundComponent
-            ,
-            borderRadius: BorderRadius.circular(15)
-          ),
-          child: Column(
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(12),
+        Expanded(
+          child: GestureDetector(
+            onTap: (){
+              setState(() {
+                selectedGender = "Femenino";
+              });
+            },
+            child: Padding(
+              padding: const EdgeInsets.only(top: 16,bottom: 16,right: 16,left: 8),
+              child: Container(
+                decoration: BoxDecoration(
+                  color: selectedGender =="Femenino" ?
+                  AppColors.backgroundComponentSelected:
+                  AppColors.backgroundComponent
+                  ,
+                  borderRadius: BorderRadius.circular(15)
+                ),
                 child: Column(
                   children: [
-                    Image.asset("assets/imagenes/female.png", height: 100),
-                    SizedBox(height: 8,),
-                    Text(
-                      "Femenino".toUpperCase(),
-                      style: TextStyles.bodyText,
+                    Padding(
+                      padding: const EdgeInsets.all(12),
+                      child: Column(
+                        children: [
+                          Image.asset("assets/imagenes/female.png", height: 100),
+                          SizedBox(height: 8,),
+                          Text(
+                            "Femenino".toUpperCase(),
+                            style: TextStyles.bodyText,
+                          ),
+                        ],
+                      ),
                     ),
                   ],
                 ),
               ),
-            ],
+            ),
           ),
         ),
       ],
