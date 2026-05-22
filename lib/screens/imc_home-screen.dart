@@ -100,7 +100,7 @@ class _ImcHomeScreen extends State<ImcHomeScreen> {
                 );
               },
               style: ButtonStyle(
-                //Shape : Forma oisea dentro van las formas de un widget
+                //Shape : Forma osea dentro van las formas de un widget
                 //El widgetstatepropertyall, define la forma de un widget sin importar el estado en el que estee, ya sea clicekado o over, etc
                 shape: WidgetStatePropertyAll(
                   RoundedRectangleBorder(
