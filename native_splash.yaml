@@ -1,0 +1,25 @@
+flutter_native_splash:
+  android: true
+  ios: true
+  web: false
+
+  #Para android 11 y ios abajo
+  background_image: "assets/imagenes/background.png"
+  image: "assets/imagenes/logo.png"
+  branding: "assets/imagenes/branding.png"
+
+  #Para android 12 en adelante
+  android_12:
+    color: "#101411" # Obligatorio: Cambia este HEX por el color principal de tu app
+    image: "assets/imagenes/android_logo.png"
+    branding: "assets/imagenes/android_branding.png"
+
+  #Modo osucro para android 11 e inferior
+  background_image: "assets/imagenes/background_dark.png"
+  image: "assets/imagenes/logo_dark.png"
+  branding: "assets/imagenes/branding_dark.png"
+
+  #Modo oscuro para android 12 y superior - Investigar
+
+
+#PARA GUIARSE LA API 33 ES ANDROID 13 Y ANDROID 11 es API 31

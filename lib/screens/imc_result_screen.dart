@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:imc_calculadora/core/app_colors.dart';
-import 'package:imc_calculadora/core/text_styles.dart';
 
 class ImcResultScreen extends StatelessWidget {
   //Para guardar los valores que le pasamos de otra vista junto a los demas valores
@@ -24,6 +23,7 @@ class ImcResultScreen extends StatelessWidget {
       body: bodyResult(context),
     );
   }
+  
   //Aqui tambien para que sea como parametro
   Padding bodyResult(BuildContext context) {
     double fixedHeight = height / 100;

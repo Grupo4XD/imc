@@ -44,7 +44,7 @@ class _HeightSelectorState extends State<HeightSelector> {
                //El activeColor es para la barra
                //Label se ve cuando movemos la barra
               },min: 150,max: 220,divisions: 70,
-              label: "${widget.selectedHeight.toStringAsFixed(0)}",
+              label: widget.selectedHeight.toStringAsFixed(0),
               activeColor: AppColors.accent,)
             ],
           ),

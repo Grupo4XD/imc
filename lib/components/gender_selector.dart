@@ -26,6 +26,7 @@ class _GenderSelectorState extends State<GenderSelector> {
                 selectedGender = "Masculino";
               });
             },
+            
             child: Padding(
               padding: const EdgeInsets.only(left: 26,bottom:16,top: 16, right: 10),
               child: Container(
